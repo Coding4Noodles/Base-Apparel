@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap");
+
+:root {
+  --desaturated-red: hsl(0, 36%, 70%);
+  --soft-red: hsl(0, 93%, 68%);
+  --dark-grayish-red: hsl(0, 6%, 24%);
+  --soft-green: hsl(135, 65%, 54%);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 1rem;
+}
+
+.navbar {
+  padding: 5vh;
+  background-color: #fff;
+  background-image: url(/images/logo.svg);
+  background-repeat: no-repeat;
+  background-position: 5vw center;
+  background-size: 130px;
+}
+
+.section_one {
+  background-image: url(/images/hero-mobile.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: auto;
+  height: 40vh;
+}
+
+.section_two {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem;
+  color: var(--desaturated-red);
+
+  .heading {
+    text-align: center;
+
+    h1 {
+      color: var(--dark-grayish-red);
+      letter-spacing: 0.5rem;
+      line-height: 2.5rem;
+      text-transform: uppercase;
+      font-size: 2.5rem;
+      .span_one {
+        color: var(--desaturated-red);
+        opacity: 0.5;
+        font-weight: 300;
+      }
+      .span_two {
+        font-weight: 600;
+      }
+      .span_three {
+        font-weight: 600;
+      }
+      span {
+        display: block;
+      }
+    }
+  }
+  p {
+    font-weight: 400;
+    opacity: 0.7;
+    padding: 12px;
+  }
+
+  .form {
+    position: relative;
+    width: 85%;
+    input {
+      outline: none;
+      padding: 10px;
+      width: 100%;
+      font-family: "Josefin Sans", sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--dark-grayish-red);
+      border: 1px solid hsla(0, 36%, 70%, 0.671);
+      border-radius: 50px;
+      margin-bottom: 5px;
+      height: 40px;
+      &::placeholder {
+        color: var(--desaturated-red);
+        font-family: "Josefin Sans", sans-serif;
+        font-weight: 400;
+        padding-left: 10px;
+      }
+    }
+
+    button {
+      background-image: linear-gradient(
+        135deg,
+        hsl(0, 80%, 86%),
+        hsl(0, 74%, 74%)
+      );
+      padding: 10px;
+      height: 40px;
+      width: 80px;
+      border-radius: 50px;
+      box-shadow: 2px 5px 10px hsla(0, 35%, 70%, 0.5);
+      outline: none;
+      border: none;
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      right: 0;
+      &:hover {
+        background-image: linear-gradient(
+          135deg,
+          hsl(0, 32%, 92%),
+          hsl(0, 62%, 83%)
+        );
+      }
+    }
+
+    .icon-error {
+      display: none;
+      position: absolute;
+      top: 10px;
+      right: 90px;
+      height: 20px;
+    }
+    .error {
+      display: none;
+      color: var(--soft-red);
+      margin-left: 20px;
+    }
+    .correct {
+      display: none;
+      color: var(--soft-green);
+      margin-left: 20px;
+    }
+  }
+  // submit form no error
+  .form-correct .correct {
+    display: inline;
+  }
+  // submit form error
+  .form-error input {
+    border: 2px solid var(--soft-red);
+    outline: none;
+  }
+
+  .form-error .error {
+    display: inline;
+  }
+
+  .form-error .icon-error {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 785px) {
+  .navbar {
+    display: none;
+  }
+  .container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    min-height: 100vh;
+
+    .right {
+      width: 60%;
+      display: flex;
+      .section_one {
+        width: 100%;
+        height: 100%;
+        background-image: url(/images/hero-desktop.jpg);
+        background-size: cover;
+        background-position: center;
+        img {
+          display: none;
+        }
+      }
+    }
+    .left {
+      display: flex;
+      padding: 2rem;
+      background-image: url(/images/bg-pattern-desktop.svg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      .section_two {
+        background-image: url(/images/logo.svg);
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        width: 80%;
+        .heading {
+          text-align: left;
+          h1 {
+            font-size: 3rem;
+            line-height: 3rem;
+          }
+        }
+        p {
+          padding: 1.2rem 0;
+          line-height: 1.4rem;
+        }
+      }
+    }
+  }
+}
